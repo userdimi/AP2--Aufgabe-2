@@ -2,7 +2,7 @@ public class QuizAntworten {
 	
 	//Eigenschaften der Klasse 
 	private String antwortText;
-	private boolean korrekt;
+	protected boolean korrekt;
 	private String symbol;
 	
 	//Konstruktor setzt die Eigenschaften fest
@@ -21,6 +21,11 @@ public class QuizAntworten {
 	//Liefert Text des Loesungsvorschlags
 	public String getAntwortsText() {
 		return antwortText;
+	}
+	
+	//Liefert den Wert der Korrektheit
+	public boolean getKorrekt () {
+		return korrekt;
 	}
 	
 	// Prueft ob die Loesung richtig ausgewaehlt wurde

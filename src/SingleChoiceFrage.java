@@ -4,9 +4,13 @@ public class SingleChoiceFrage extends QuizFragen {
 	private int punkte = 0;
 	private QuizAntworten [] antwortmoeglichkeiten = new QuizAntworten [4];
 	
-	public SingleChoiceFrage(String frage, QuizAntworten antwort0, QuizAntworten antwort1, QuizAntworten antwort2, QuizAntworten antwort3, int punkte) {
-		super(frage, antwort0, antwort1, antwort2, antwort3);
+	public SingleChoiceFrage(String frage, int punkte, QuizAntworten... antworten) {
+		super(frage, antworten);
 		this.punkte = punkte;
+		for (int i = 0; i < antwortmoeglichkeiten.length; i++) {
+			antwortmoeglichkeiten[i] = antworten[i];
+					
+		}
 	}
 	
 	public int counter(String input, int punkte){
@@ -15,25 +19,22 @@ public class SingleChoiceFrage extends QuizFragen {
 		return total;
 	}
 	
-	/*
-	public void frageStellen(){
-		System.out.println(frage + " (" + punkte + " erreichbar)");
-		for ( QuizAntworten i : antwortmoeglichkeiten) {
-			System.out.println(i.getSymbol() + ": " + i.getAntwortsText());
+	public boolean isSingel () {
+		int index = 0;
+		for (int i = 0; i < antwortmoeglichkeiten.length; i++) {
+			if (antwortmoeglichkeiten[i].getKorrekt()) 
+				index++;
 		}
- 	
-		System.out.println("\nWaehlen Sie die richtigen Antwortmoeglichkeiten: ");
-		input = getInput();
-		//System.out.println(input);
-		total = counter(input, punkte);
-	}*/
-	
+			if (index == 1)
+				return true;		
+			return false;
+	}		
 	
 	@Override
-	public void frageStellen () {
+	public void frageStellen (QuizFrame qf) {
 		System.out.println("" +punkte + " € Frage"); 
 		System.out.println(frage);
-		super.frageStellen();
+		super.frageStellen(qf);
 		total = counter(input, punkte);
 		
 	}

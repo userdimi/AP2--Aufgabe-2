@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.SwingUtilities;
+
 public class QuizFragen {
 	
 	//Eigenschaften der Klasse
@@ -19,24 +21,39 @@ public class QuizFragen {
 	private Scanner scan = new Scanner(System.in);
 	
 	//Konstruktor zum Erstellen der Frage
-	public QuizFragen (String frage, QuizAntworten antwort0, QuizAntworten antwort1, QuizAntworten antwort2, QuizAntworten antwort3) {
+	public QuizFragen (String frage, QuizAntworten... antworten) {
 		this.frage = frage;
-		this.antwortmoeglichkeiten[0] = antwort0;
-		this.antwortmoeglichkeiten[1] = antwort1;
-		this.antwortmoeglichkeiten[2] = antwort2;
-		this.antwortmoeglichkeiten[3] = antwort3;
+		this.antwortmoeglichkeiten[0] = antworten[0];
+		this.antwortmoeglichkeiten[1] = antworten[1];
+		this.antwortmoeglichkeiten[2] = antworten[2];
+		this.antwortmoeglichkeiten[3] = antworten[3];
 	}
 	
+	public String getFrage () {
+		return frage;
+	}
+	
+	
+	public QuizAntworten[] getAntwortmoeglichkeiten () {
+		return antwortmoeglichkeiten;
+	}
+	
+	
+	
 	//Ausgabe der Frage mit Antwortmöglichkeiten
-	public void frageStellen() {
+	public void frageStellen(QuizFrame qf) {
 		
 		//Gibt den String der Frage aus
 		System.out.println(frage);
 		
 		//gibt die Antwortmöglichkeiten der Frage aus 
+		int index = 0;
+		
 		for ( QuizAntworten i : antwortmoeglichkeiten) {
-				System.out.println(i.getSymbol() + ": " + i.getAntwortsText());
+			//qf.buildCheck(i, index++);
+			System.out.println(i.getSymbol() + ": " + i.getAntwortsText());
 		}
+		
 		
 		System.out.println("\nWaehlen Sie die richtigen Antwortmoeglichkeiten: ");
 		
