@@ -33,6 +33,10 @@ public class QuizFragen {
 		return frage;
 	}
 	
+	public int getPunkte () {
+		return punkte;
+	}
+	
 	
 	public QuizAntworten[] getAntwortmoeglichkeiten () {
 		return antwortmoeglichkeiten;
@@ -50,7 +54,6 @@ public class QuizFragen {
 		int index = 0;
 		
 		for ( QuizAntworten i : antwortmoeglichkeiten) {
-			//qf.buildCheck(i, index++);
 			System.out.println(i.getSymbol() + ": " + i.getAntwortsText());
 		}
 		

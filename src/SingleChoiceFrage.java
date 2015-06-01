@@ -19,6 +19,10 @@ public class SingleChoiceFrage extends QuizFragen {
 		return total;
 	}
 	
+	public int getPunkte () {
+		return punkte;
+	}
+	
 	public boolean isSingel () {
 		int index = 0;
 		for (int i = 0; i < antwortmoeglichkeiten.length; i++) {

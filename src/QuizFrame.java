@@ -14,11 +14,14 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 
 public class QuizFrame extends JFrame {
 	//Label für den String aus der Frage
 	JLabel frage;
+	//Label für Punkteanzeige
+	JLabel punkteLabel;
 	//ArrayList für die Checkboxen
 	ArrayList<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
 	//Pannel für die Frage
@@ -35,8 +38,7 @@ public class QuizFrame extends JFrame {
 	JCheckBox box;
 	//Array mit Antworten
 	QuizAntworten [] antworten;
-	//Hilfsvariable
-	int index = 0;
+	
 	
 	public QuizFrame () {
 		buildGui();
@@ -69,18 +71,32 @@ public class QuizFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					for (int i = 0; i < antworten.length; i++) {
-						for (JCheckBox box : checkBoxList) {
-							if (box.isSelected() && antworten[i].getKorrekt()) {
-								box.setForeground(Color.green); 
-							} else if (box.isSelected() && (antworten[i].getKorrekt() == false)) {
-								box.setForeground(Color.red);
-							}
-						}
-					}
-				}
 				
+				for (int i = 0; i < antworten.length; i++) {
+					if (checkBoxList.get(i).isSelected() && antworten[i].getKorrekt())
+						checkBoxList.get(i).setForeground(Color.GREEN);
+					else
+						checkBoxList.get(i).setForeground(Color.RED);
+				}
+			}		
 		});
+		
+		btnRandom.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			
+				QuizApp.setZufall();
+				frage.setText(QuizApp.getRandom().getFrage());
+				QuizAntworten a = null;
+				
+				for (int i = 0; i < QuizApp.getRandom().getAntwortmoeglichkeiten().length; i++ ) {
+					a = QuizApp.getRandom().getAntwortmoeglichkeiten()[i];
+					checkBoxList.get(i).setText(a.getSymbol() + ": " + a.getAntwortsText());
+				}	
+			}
+		});
+
 		
 		content.add(fragenPanel, BorderLayout.NORTH);
 		content.add(buttonPanel, BorderLayout.SOUTH);
@@ -88,6 +104,7 @@ public class QuizFrame extends JFrame {
 		
 		setSize(500, 400);
 		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 	
@@ -95,6 +112,14 @@ public class QuizFrame extends JFrame {
 	public void addFrage (QuizFragen f) {
 		
 		frage = new JLabel(f.getFrage());
+		String punkte = (s.getPunkte());
+		punkteLabel = new JLabel(punkte);
+		
+		
+		
+		
+	
+
 		
 		fragenPanel.add(frage);
 		antworten = f.getAntwortmoeglichkeiten();
@@ -110,5 +135,7 @@ public class QuizFrame extends JFrame {
 		
 		
 	}
+
+	
 	
 }
