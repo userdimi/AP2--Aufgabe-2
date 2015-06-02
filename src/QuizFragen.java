@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.SwingUtilities;
 
 public class QuizFragen {
 	
@@ -8,10 +7,10 @@ public class QuizFragen {
 	
 	protected static int total = 0;
 	
-	//Speichert den String der Frage ab
+	//Text der Frage
 	private String frage;
 	
-	//Speichert 4 Antwortmöglichkeiten in das Array ab
+	//4 Antwortmöglichlichkeiten
 	private QuizAntworten [] antwortmoeglichkeiten = new QuizAntworten [4];
 	
 	//Speichert die Eingabe des Benutzers
@@ -29,6 +28,7 @@ public class QuizFragen {
 		this.antwortmoeglichkeiten[3] = antworten[3];
 	}
 	
+	//Übergibt den Fragentext
 	public String getFrage () {
 		return frage;
 	}
@@ -45,9 +45,6 @@ public class QuizFragen {
 		
 		//Gibt den String der Frage aus
 		System.out.println(frage);
-		
-		//gibt die Antwortmöglichkeiten der Frage aus 
-		int index = 0;
 		
 		for ( QuizAntworten i : antwortmoeglichkeiten) {
 			System.out.println(i.getSymbol() + ": " + i.getAntwortsText());
@@ -85,7 +82,6 @@ public class QuizFragen {
 			if(i.check(input)){
 				nice++;
 			}else{
-				//System.out.println(i.getSymbol() + " -> ist nicht richtig gewaehlt!");
 				System.out.println("Ihre Antwort war leider falsch. GAME OVER!");
 				System.out.println("Sie haben" + total + " € gewonnen");
 				System.exit(0);
