@@ -33,10 +33,6 @@ public class QuizFragen {
 		return frage;
 	}
 	
-	public int getPunkte () {
-		return punkte;
-	}
-	
 	
 	public QuizAntworten[] getAntwortmoeglichkeiten () {
 		return antwortmoeglichkeiten;

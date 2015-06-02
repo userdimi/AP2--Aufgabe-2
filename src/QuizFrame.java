@@ -112,15 +112,6 @@ public class QuizFrame extends JFrame {
 	public void addFrage (QuizFragen f) {
 		
 		frage = new JLabel(f.getFrage());
-		String punkte = (s.getPunkte());
-		punkteLabel = new JLabel(punkte);
-		
-		
-		
-		
-	
-
-		
 		fragenPanel.add(frage);
 		antworten = f.getAntwortmoeglichkeiten();
 		
