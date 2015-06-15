@@ -33,7 +33,7 @@ public class QuizApp extends Fragenkatalog  {
 				
 				for (QuizFragen i : fragen) {
 					quiz.addFrage(i);
-					i.frageStellen(quiz);
+					i.frageStellen();
 				}
 					
 					

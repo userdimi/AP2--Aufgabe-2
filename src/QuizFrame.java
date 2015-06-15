@@ -117,7 +117,8 @@ public class QuizFrame extends JFrame {
 		
 		for (QuizAntworten a : antworten) {
 			check = new JPanel(new FlowLayout());
-			box = new JCheckBox(a.getSymbol() + ": " + a.getAntwortsText());
+			//box = new JCheckBox(a.getSymbol() + ": " + a.getAntwortsText());
+			box = new JCheckBox(a.getSymbol());
 			checkBoxList.add(box);
 			check.add(box);
 			boxPanel.add(check);

@@ -1,3 +1,5 @@
+import javax.swing.JCheckBox;
+
 public class SingleChoiceFrage extends QuizFragen {
 
 	private String frage;
@@ -13,7 +15,7 @@ public class SingleChoiceFrage extends QuizFragen {
 		}
 	}
 	
-	public int counter(String input, int punkte){
+	public int counter(JCheckBox input, int punkte){
 		total = total + punkte;
 		System.out.println("Sie haben " + total + " Euro gewonnen!");
 		return total;
@@ -35,10 +37,10 @@ public class SingleChoiceFrage extends QuizFragen {
 	}		
 	
 	@Override
-	public void frageStellen (QuizFrame qf) {
+	public void frageStellen () {
 		System.out.println("" +punkte + " € Frage"); 
 		System.out.println(frage);
-		super.frageStellen(qf);
+		super.frageStellen();
 		total = counter(input, punkte);
 		
 	}

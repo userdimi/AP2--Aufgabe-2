@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+
 
 public class QuizFragen {
 	
@@ -14,7 +17,7 @@ public class QuizFragen {
 	private QuizAntworten [] antwortmoeglichkeiten = new QuizAntworten [4];
 	
 	//Speichert die Eingabe des Benutzers
-	protected String input;
+	protected JCheckBox input;
 	
 	//Auslesen der Eingabe des Benutzers
 	private Scanner scan = new Scanner(System.in);
@@ -41,7 +44,7 @@ public class QuizFragen {
 	
 	
 	//Ausgabe der Frage mit Antwortmöglichkeiten
-	public void frageStellen(QuizFrame qf) {
+	public void frageStellen() {
 		
 		//Gibt den String der Frage aus
 		System.out.println(frage);
@@ -54,12 +57,11 @@ public class QuizFragen {
 		System.out.println("\nWaehlen Sie die richtigen Antwortmoeglichkeiten: ");
 		
 		//Speichert die Eingabe des Benutzers in die Variable input
-		input = getInput();
 		
 		counter(input);
 	}
 	
-	//Konvertiert die Eingabe des Benutzers
+	/*//Konvertiert die Eingabe des Benutzers
 	public String getInput() {
 		scan = new Scanner(System.in);
 		input = scan.nextLine();
@@ -67,14 +69,14 @@ public class QuizFragen {
 		input = input.replaceAll("," , "");
 		input = input.replaceAll(" ", "");
 		return input;
-	}
+	}*/
 	
 	//Beendet die Eingabe des Benutzers
 	public void closeInput(){
 		scan.close();
 	}
 	
-	
+	/*
 	public int counter(String input){
 		int nice = 0;
 		
@@ -88,6 +90,22 @@ public class QuizFragen {
 			}
 		}		
 		System.out.println("Sie haben " + nice + " Antworten aus " + antwortmoeglichkeiten.length + " richtig gewaehlt!");
+		return nice;
+	}*/
+	
+	public int counter (JCheckBox selectedBox) {
+		int nice = 0;
+		
+		for (QuizAntworten i : antwortmoeglichkeiten) {
+			if (i.check(selectedBox)) {
+				nice++;
+			} else {
+				JOptionPane.showMessageDialog(null, "Antwort falsch. GAME OVER!");
+				JOptionPane.showMessageDialog(null, "Sie haben " + total + " Punkte erreicht");
+				System.exit(0);
+			}
+		}
+		JOptionPane.showMessageDialog(null, "Sie haben " + nice + " Antworten aus " + antwortmoeglichkeiten.length + " richtig gewaehlt!");
 		return nice;
 	}
 }
