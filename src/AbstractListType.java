@@ -11,7 +11,19 @@ public interface AbstractListType {
 	 * Fügt eine QuizFrage am Ende der Liste ein
 	 * @param frage wird als letztes Element der Liste eingefügt
 	 */
-	public void addLastQuestion (QuizFragen frage);
+	public void addLastQuestion (QuizFragen fragen);
+	
+	/**
+	 * Gibt die erste Frage aus
+	 * @return erste Frage 
+	 */
+	public QuizFragen getFirst ();
+	
+	/**
+	 * Gibt die letzte Frage aus
+	 * @return letzte Frage
+	 */
+	public QuizFragen getLast ();
 
 	
 	/**

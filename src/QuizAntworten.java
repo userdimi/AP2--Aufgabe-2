@@ -30,15 +30,16 @@ public class QuizAntworten {
 		return korrekt;
 	}
 	
-	/*
+	
 	// Prueft ob die Loesung richtig ausgewaehlt wurde
 	public boolean check (String gewaehlteAntworten) {
 		boolean tmp = gewaehlteAntworten.contains(symbol);
 		return tmp == korrekt;
-	}*/
+	}
 	
+	/*
 	public boolean check (JCheckBox box) {
 		boolean tmp = box.getText().contains(symbol);
 		return tmp == korrekt;
-	}
+	}*/
 }

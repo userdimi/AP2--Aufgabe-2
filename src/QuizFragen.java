@@ -58,7 +58,7 @@ public class QuizFragen {
 		
 		//Speichert die Eingabe des Benutzers in die Variable input
 		
-		counter(input);
+		//counter(input);
 	}
 	
 	/*//Konvertiert die Eingabe des Benutzers
@@ -76,7 +76,7 @@ public class QuizFragen {
 		scan.close();
 	}
 	
-	/*
+	
 	public int counter(String input){
 		int nice = 0;
 		
@@ -91,8 +91,9 @@ public class QuizFragen {
 		}		
 		System.out.println("Sie haben " + nice + " Antworten aus " + antwortmoeglichkeiten.length + " richtig gewaehlt!");
 		return nice;
-	}*/
+	}
 	
+	/*
 	public int counter (JCheckBox selectedBox) {
 		int nice = 0;
 		
@@ -107,6 +108,6 @@ public class QuizFragen {
 		}
 		JOptionPane.showMessageDialog(null, "Sie haben " + nice + " Antworten aus " + antwortmoeglichkeiten.length + " richtig gewaehlt!");
 		return nice;
-	}
+	}*/
 }
 		

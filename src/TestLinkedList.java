@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 
@@ -68,10 +66,33 @@ public class TestLinkedList {
 		
 		list.addFirstQuestion(qf);
 		list.addFirstQuestion(qf1);
+		list.addFirstQuestion(qf2);
 		list.addFirstQuestion(qf3);
-		list.questionCount();
-		list.randomQuestion();
-		//list.addLastQuestion(qf2);
+		list.addFirstQuestion(qf4);
+		list.addFirstQuestion(qf5);
+		list.addFirstQuestion(qf6);
+		
+		System.out.println("Anzahl der Fragen: " +list.questionCount());
+		
+		list.addLastQuestion(qf7);
+		list.addLastQuestion(qf8);
+		
+		System.out.println("Anzahl der Fragen: " + list.questionCount());
+		
+		System.out.println("Erste Frage aus der Liste");
+		System.out.println("===========================");
+		System.out.println("                            ");
+		list.getFirst().frageStellen();
+		
+		System.out.println("Letzte Frage aus der Liste");
+		System.out.println("===========================");
+		System.out.println("                            ");
+		list.getLast().frageStellen();
+		
+		System.out.println("Zufällige Frage aus der Liste");
+		System.out.println("===========================");
+		System.out.println("                            ");
+		list.randomQuestion().frageStellen();
 		
 	}
 
