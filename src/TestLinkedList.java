@@ -1,4 +1,5 @@
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 
 public class TestLinkedList {
@@ -92,7 +93,19 @@ public class TestLinkedList {
 		System.out.println("Zufällige Frage aus der Liste");
 		System.out.println("===========================");
 		System.out.println("                            ");
-		list.randomQuestion().frageStellen();
+		
+		int n = list.questionCount();
+		
+		while (!list.isEmpty()) {
+			System.out.println(list.randomQuestion().getFrage());
+			System.out.println("Anzahl der Fragen: " + list.questionCount());
+			n--;
+			assertTrue(n == list.questionCount()); 
+		}
+		
+		
+		
+		
 		
 	}
 

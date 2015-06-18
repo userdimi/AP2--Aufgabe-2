@@ -100,9 +100,14 @@ public class SinglyLinkedList implements AbstractListType {
 		//Zufallsvariable wird aus anhand der Gesamtfragen in der Liste erstellt
 		int random = (int)( Math.random() * questionCount());
 		//Gibt die Frage an Stelle der Zufallsvariable aus
-		return getQuestion(random);
+		QuizFragen fragetmp = (getQuestion(random));
+		delete(fragetmp);
+		return fragetmp;
+		
 		
 	}
+	
+	
 	
 	//Innere Klasse Node
 	private class Node {
@@ -116,6 +121,28 @@ public class SinglyLinkedList implements AbstractListType {
 			this.data = data;
 			this.next = next;
 		}
+	}
+
+
+
+	@Override
+	public void delete(QuizFragen fragen) {
+		
+		if (first == null) {
+			
+		} else if (first.data.equals(fragen)) {
+			first = first.next;
+		} else {
+			Node runPointer = first;
+			while (runPointer.next != null && !runPointer.next.data.equals(fragen)) {
+				runPointer = runPointer.next;
+			}
+			if (runPointer != null) {
+				runPointer.next = runPointer.next.next;
+			}
+			
+		}
+		
 	}
 	
 }

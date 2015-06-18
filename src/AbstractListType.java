@@ -52,4 +52,9 @@ public interface AbstractListType {
 	 * @return liefert eine zufällige Quiz-Frage der Liste 
 	 */
 	public QuizFragen randomQuestion ();
+	
+	/**
+	 * Entfernt die Frage aus der Liste
+	 */
+	public void delete(QuizFragen fragen);
 }
