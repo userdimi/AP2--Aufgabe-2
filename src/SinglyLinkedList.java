@@ -157,16 +157,27 @@ public class SinglyLinkedList implements AbstractListType {
 				//Speichere den Wert aus Data in eine temporäre String Variable
 				String tmp = String.valueOf(runPointer.data);
 				//Vergleiche den Wert aus tmp mit dem übergebenen Parameter
-				int vergleich = tmp.compareTo(String.valueOf(frage.getFrage()));
-				
-				if (vergleich >  0) {
-					for 
+				int vergleichErgebnis = tmp.compareTo(String.valueOf(frage.getFrage()));
+				//Wenn der erste String kleiner ist wird die Frage vor dem Knoten erzeugt
+				if (vergleichErgebnis <  0) {
+					 runPointer = new Node(frage, runPointer);
+				//Wenn der erste String Größer oder gleich 0 ist, wird ein neuer Knoten nach dem Knoten erzeugt	 
+				} else if (vergleichErgebnis > 0 || vergleichErgebnis == 0) {
+					runPointer = new Node(frage, runPointer.next);
 				}
 				
 				runPointer = runPointer.next;
 			}
 		}
 		
+	}
+	
+	//Fügt ein Knoten vor den Element
+	public void addBefore (QuizFragen frage) {
+		Node n = new Node(frage, first);
+		n.next = first;
+		n.data = frage;
+		first = n;
 	}
 
 	@Override

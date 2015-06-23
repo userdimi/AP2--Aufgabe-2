@@ -59,7 +59,7 @@ public class TestLinkedList {
 			new QuizAntworten("Mascara & Liedschatten", "B", false), 
 			new QuizAntworten("Freunde & Bekannte", "C", true),
 			new QuizAntworten("Sofa & Sessel", "D", false));
-
+/*
 	@Test
 	public void test() {
 		
@@ -102,8 +102,9 @@ public class TestLinkedList {
 			n--;
 			assertTrue(n == list.questionCount()); 
 		}
-	}
+	} */
 	
+	/*
 	@Test
 	public void testIsSorted() {
 		
@@ -121,7 +122,7 @@ public class TestLinkedList {
 		assertTrue(list.questionCount() == 1);
 		
 		//Liste nach dem sortrieren ist sortiert
-	}
+	}*/
 	
 	@Test
 	public void testAddSorted () {
@@ -130,12 +131,15 @@ public class TestLinkedList {
 		AbstractListType list = new SinglyLinkedList();
 		
 		//Zu testende Methode
-		list.addFirstQuestion(qf);
-		list.addFirstQuestion(qf1);
-		list.addSorted(qf2);
+		//list.addSorted(qf8);
+		//list.addSorted(qf4);
+		//list.addSorted(qf7);
 		
-		//Stringvergleich
-		assertEquals(list.getQuestion(1).getFrage(), qf1.getFrage());
+		//Wurden die Elemente hinzugefügt?
+		assertFalse(list.isEmpty());
+		
+		//Werden die Strings vergliechen?
+	
 		
 	}
 }
