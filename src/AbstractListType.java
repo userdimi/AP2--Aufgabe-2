@@ -76,4 +76,5 @@ public interface AbstractListType {
 	 * @return wahr, wenn alle Elemente der Liste sortiert sind
 	 */
 	public boolean isSorted ();
+	
 }

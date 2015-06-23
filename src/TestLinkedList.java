@@ -130,10 +130,16 @@ public class TestLinkedList {
 		//neue Liste wird erstellt 
 		AbstractListType list = new SinglyLinkedList();
 		
+		//list.addFirstQuestion(qf1);
+		//list.addBefore(qf);
+		
+		
 		//Zu testende Methode
-		//list.addSorted(qf8);
-		//list.addSorted(qf4);
-		//list.addSorted(qf7);
+		list.addSorted(qf);
+		list.addSorted(qf7);
+		list.addSorted(qf3);
+		System.out.println(list.getFirst().getFrage());
+		System.out.println(list.getLast().getFrage());
 		
 		//Wurden die Elemente hinzugefügt?
 		assertFalse(list.isEmpty());
