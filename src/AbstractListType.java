@@ -57,4 +57,23 @@ public interface AbstractListType {
 	 * Entfernt die Frage aus der Liste
 	 */
 	public void delete(QuizFragen fragen);
+	
+	/**
+	 * Fügt eine QuizFrage sortiert ein. Sortiert wird nach dem Fragetext, 
+	 * z.B steht "Wie viele Einwohner hat Köln" alphabetisch hinter 
+	 * "An welchem Tag beginnt das neue Jahr?".
+	 * @param frage wird alphabetisch (nach Fragetext der QuizFrage) einsortiert
+	 */
+	public void addSorted (QuizFragen frage);
+	
+	/**
+	 * Sortiert die vorhandenen Elemente der Liste
+	 */
+	public void sort ();
+	
+	/**
+	 * 
+	 * @return wahr, wenn alle Elemente der Liste sortiert sind
+	 */
+	public boolean isSorted ();
 }

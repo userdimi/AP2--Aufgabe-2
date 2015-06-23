@@ -104,7 +104,6 @@ public class SinglyLinkedList implements AbstractListType {
 		delete(fragetmp);
 		return fragetmp;
 		
-		
 	}
 	
 	
@@ -144,5 +143,45 @@ public class SinglyLinkedList implements AbstractListType {
 		}
 		
 	}
+
+	@Override
+	public void addSorted(QuizFragen frage) {
+		//Falls die Liste leer ist, erstelle den ersten Knoten
+		if (first == null) {
+			first = new Node(frage, first);
+		} else {
+			//Laufvariable 
+			Node runPointer = first;
+			//Solange die Laufvariable != 0 ist
+			while (runPointer != null) {
+				//Speichere den Wert aus Data in eine temporäre String Variable
+				String tmp = String.valueOf(runPointer.data);
+				//Vergleiche den Wert aus tmp mit dem übergebenen Parameter
+				int vergleich = tmp.compareTo(String.valueOf(frage.getFrage()));
+				
+				if (vergleich >  0) {
+					for 
+				}
+				
+				runPointer = runPointer.next;
+			}
+		}
+		
+	}
+
+	@Override
+	public void sort() {
+		// TODO Auto-generated method stub
+		
+	}
 	
-}
+	//Liefert wahr, wenn die Liste sortiert ist
+	@Override
+	public boolean isSorted() {
+		//ist sortiert, wenn die Liste leer ist
+		if (isEmpty() || questionCount() == 1) {
+			return true;		
+		}
+		return false;
+	}
+} 
