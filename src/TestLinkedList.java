@@ -130,19 +130,43 @@ public class TestLinkedList {
 		//neue Liste wird erstellt 
 		AbstractListType list = new SinglyLinkedList();
 		
-		//list.addFirstQuestion(qf1);
-		//list.addBefore(qf);
-		
+		//Liste leer?
+		assertTrue(list.isEmpty());
 		
 		//Zu testende Methode
 		list.addSorted(qf);
 		list.addSorted(qf7);
 		list.addSorted(qf3);
-		System.out.println(list.getFirst().getFrage());
-		System.out.println(list.getLast().getFrage());
+		
 		
 		//Wurden die Elemente hinzugefügt?
 		assertFalse(list.isEmpty());
+		assertTrue(list.questionCount() == 3);
+	
+		
+		//Fragen sortiert beigefügt?
+		assertTrue(list.getQuestion(0)==(qf7));
+		assertTrue(list.getQuestion(1)==(qf3));
+		assertTrue(list.getQuestion(2)==(qf));
+		
+		list.reverse();
+		
+		System.out.println(list);
+		
+		assertTrue(list.getQuestion(2)==(qf7));
+		assertTrue(list.getQuestion(1)==(qf3));
+		assertTrue(list.getQuestion(0)==(qf));
+		
+		
+		
+		//Wurden die Elemente an die richtige Position hinzugefügt
+		//assertTrue(list.getQuestion(1).equals(qf1));
+		//assertTrue(list.getFirst().equals(qf7));
+		//assertTrue(list.indexOf(qf7) == 1);
+		
+		
+		
+		
 		
 		//Werden die Strings vergliechen?
 	

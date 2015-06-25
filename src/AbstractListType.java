@@ -77,4 +77,19 @@ public interface AbstractListType {
 	 */
 	public boolean isSorted ();
 	
+	/**
+	 * Setzt eine Frage an eine bestimmte Position in der Liste
+	 * @param fragen Frage die gesetzt werden soll
+	 * @param index die Stelle, an der die Frage gesetzt werden soll
+	 */
+	public void addOnPosition (QuizFragen fragen, int index);
+	
+	/**
+	 *Gibt die Position in der Liste aus  
+	 * @param frage Position der Frage des Parameters wird ermittelt
+	 */
+	public int indexOf (QuizFragen frage);
+	
+	public void reverse ();
+	
 }
